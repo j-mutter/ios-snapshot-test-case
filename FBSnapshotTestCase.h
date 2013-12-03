@@ -11,8 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import <UIKit/UIKit.h>
-
-#import <XCTest/XCTest.h>
+#import <SenTestingKit/SenTestingKit.h>
 
 #ifndef FB_REFERENCE_IMAGE_DIR
 #error FB_REFERENCE_IMAGE_DIR is not defined. Define it in GCC_PREPROCESSOR_DEFINITIONS to point to a directory.
@@ -31,7 +30,7 @@
   NSError *error__ = nil; \
   NSString *referenceImagesDirectory__ = [NSString stringWithFormat:@"%s", FB_REFERENCE_IMAGE_DIR]; \
   BOOL comparisonSuccess__ = [self compareSnapshotOfView:(view__) referenceImagesDirectory:referenceImagesDirectory__ identifier:(identifier__) error:&error__]; \
-  XCTAssertTrue(comparisonSuccess__, @"Snapshot comparison failed: %@", error__); \
+  STAssertTrue(comparisonSuccess__, @"Snapshot comparison failed: %@", error__); \
 }
 
 /**
@@ -44,7 +43,7 @@
   NSError *error__ = nil; \
   NSString *referenceImagesDirectory__ = [NSString stringWithFormat:@"%s", FB_REFERENCE_IMAGE_DIR]; \
   BOOL comparisonSuccess__ = [self compareSnapshotOfLayer:(layer__) referenceImagesDirectory:referenceImagesDirectory__ identifier:(identifier__) error:&error__]; \
-  XCTAssertTrue(comparisonSuccess__, @"Snapshot comparison failed: %@", error__); \
+  STAssertTrue(comparisonSuccess__, @"Snapshot comparison failed: %@", error__); \
 }
 
 @class FBTestSnapshotController;
@@ -52,11 +51,11 @@
 /**
  The base class of view snapshotting tests. If you have small UI component, it's often easier to configure it in a test
  and compare an image of the view to a reference image that write lots of complex layout-code tests.
-
+ 
  In order to flip the tests in your subclass to record the reference images set `recordMode` to YES before calling
  -[super setUp].
  */
-@interface FBSnapshotTestCase : XCTestCase
+@interface FBSnapshotTestCase : SenTestCase
 
 /**
  When YES, the test macros will save reference images, rather than performing an actual test.
