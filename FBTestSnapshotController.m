@@ -227,6 +227,10 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
       fileName = @"";
       break;
   }
+
+  NSString *majorOSVersion = [[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] firstObject];
+  fileName = [[fileName stringByAppendingString:NSStringFromSelector(selector)] stringByAppendingFormat:@"_IOS%@", majorOSVersion];
+
   fileName = [fileName stringByAppendingString:NSStringFromSelector(selector)];
   if (0 < identifier.length) {
     fileName = [fileName stringByAppendingFormat:@"_%@", identifier];
