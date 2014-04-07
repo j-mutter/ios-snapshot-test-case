@@ -30,7 +30,7 @@
   NSError *error__ = nil; \
   NSString *referenceImagesDirectory__ = [NSString stringWithFormat:@"%s", FB_REFERENCE_IMAGE_DIR]; \
   BOOL comparisonSuccess__ = [self compareSnapshotOfView:(view__) referenceImagesDirectory:referenceImagesDirectory__ identifier:(identifier__) error:&error__]; \
-  STAssertTrue(comparisonSuccess__, @"Snapshot comparison failed: %@", error__); \
+  XCTAssertTrue(comparisonSuccess__, @"Snapshot comparison failed: %@", error__); \
 }
 
 /**
@@ -43,7 +43,7 @@
   NSError *error__ = nil; \
   NSString *referenceImagesDirectory__ = [NSString stringWithFormat:@"%s", FB_REFERENCE_IMAGE_DIR]; \
   BOOL comparisonSuccess__ = [self compareSnapshotOfLayer:(layer__) referenceImagesDirectory:referenceImagesDirectory__ identifier:(identifier__) error:&error__]; \
-  STAssertTrue(comparisonSuccess__, @"Snapshot comparison failed: %@", error__); \
+  XCTAssertTrue(comparisonSuccess__, @"Snapshot comparison failed: %@", error__); \
 }
 
 @class FBTestSnapshotController;
