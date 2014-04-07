@@ -110,7 +110,7 @@
     layer = (CALayer *)viewOrLayer;
     [layer layoutIfNeeded];
   } else {
-    STAssertTrue(NO, @"Only UIView and CALayer classes can be snapshotted!  %@", viewOrLayer);
+    XCTAssertTrue(NO, @"Only UIView and CALayer classes can be snapshotted!  %@", viewOrLayer);
   }
 
   return [self _renderLayer:layer];

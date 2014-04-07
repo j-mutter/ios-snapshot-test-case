@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import <UIKit/UIKit.h>
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 #ifndef FB_REFERENCE_IMAGE_DIR
 #error FB_REFERENCE_IMAGE_DIR is not defined. Define it in GCC_PREPROCESSOR_DEFINITIONS to point to a directory.
@@ -55,7 +55,7 @@
  In order to flip the tests in your subclass to record the reference images set `recordMode` to YES before calling
  -[super setUp].
  */
-@interface FBSnapshotTestCase : SenTestCase
+@interface FBSnapshotTestCase : XCTestCase
 
 /**
  When YES, the test macros will save reference images, rather than performing an actual test.
