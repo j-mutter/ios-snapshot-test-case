@@ -385,7 +385,8 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
 {
 #ifdef __IPHONE_7_0
   if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-    UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0);
+    CGRect r = CGRectApplyAffineTransform(view.frame, view.transform);
+    UIGraphicsBeginImageContextWithOptions(r.size, NO, 0);
     [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
